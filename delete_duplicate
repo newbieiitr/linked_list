@@ -1,0 +1,50 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+struct node {
+    int data;
+    node* next;
+};
+
+void del(node* prev,node* node){
+    prev->next=node->next;
+    
+}
+
+node* dup(node* A){
+   if(A!=null) {
+       if(A->next!=null){
+    node* prev=A;
+    node* temp=A->next;
+    // prev is pointer previous node 
+    // temp is pointer to current node
+    int prevdata=A->data;
+    // data at last node
+    while(temp->next!=NULL){
+        //run for second to second last element of the list
+        if(temp->data==prevdata){
+            del(prev,temp);
+        }
+        else {
+            prev=prev->next;
+             temp=temp->next;
+            prevdata=prev->data;
+        }
+        
+    }
+    if(temp->data==prevdata){
+            del(prev,temp);
+        }
+        else {
+            prev=prev->next;
+             temp=temp->next;
+            prevdata=prev->data;
+        } } }
+    
+}
+
+int main() {
+	// your code goes here
+	return 0;
+}
