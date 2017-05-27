@@ -1,0 +1,102 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+void Incpointer(node* prev,node* temp){
+    prev=temp;
+    temp=temp->next;
+    //copy syntax to main function
+    
+}
+
+
+void Addback(node* prev1,node* temp1,node* temp2){
+    //list 1 is bigger 
+    
+    prev1->next=temp2;
+    temp2=temp2->next;
+    prev1=prev1->next;
+    prev1->next=temp1;
+    ///copy syntax in main
+}
+
+
+struct node {
+    int data;
+    node* next;
+};
+node* rotateR(node* A,node* B){
+int sizeA=0;
+///////////////check it should be greater than 0
+node* temp=A;
+if(A!=NULL)size++;
+while(temp->next!=NULL){    size++;}
+
+
+temp1=A;
+node* prev;
+node* temp2=B;
+
+//////////////loop begin
+// suppose A is greater in 
+for(int i=0;i<Asize;i++){
+   if(prev==NULL){
+            
+         if(temp1->val>temp2->val){
+             B=B->next;
+             temp2->next=A;
+             A=temp2;
+             temp2=B;   
+             prev=A;         }
+             
+         
+             
+        else {
+            prev=temp1;
+            temp1=temp1->next;
+        }     
+}
+
+///////////////proper initialisation done
+
+else if(temp1->next==NULL&&(temp1->val<=temp2-<val)){
+    temp1-next=temp2;
+    B=NULL;
+    return A;
+}
+
+
+else if(B!=NULL){
+    if(temp1->val>temp2->val){
+     prev1->next=temp2;
+    temp2=temp2->next;
+    prev1=prev1->next;
+    prev1->next=temp1;
+    }
+    
+    else {
+         prev=temp1;
+         temp1=temp1->next;
+    }
+    
+}
+
+
+
+
+
+return A; 
+    
+}
+    
+    
+    
+
+
+
+
+
+int main() {
+	// your code goes here
+	return 0;
+}
