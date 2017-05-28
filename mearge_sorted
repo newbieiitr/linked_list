@@ -2,44 +2,55 @@
 #include <stdlib.h>
 using namespace std;
 
-void Incpointer(node* prev,node* temp){
-    prev=temp;
-    temp=temp->next;
-    //copy syntax to main function
-    
-}
-
-
-void Addback(node* prev1,node* temp1,node* temp2){
-    //list 1 is bigger 
-    
-    prev1->next=temp2;
-    temp2=temp2->next;
-    prev1=prev1->next;
-    prev1->next=temp1;
-    ///copy syntax in main
-}
-
-
-struct node {
-    int data;
-    node* next;
-};
-node* rotateR(node* A,node* B){
+ ListNode* rotateR(ListNode* A,ListNode* B){
+    // cout<<"function begin"<<endl;
 int sizeA=0;
+int sizeB=0;
 ///////////////check it should be greater than 0
-node* temp=A;
-if(A!=NULL)size++;
-while(temp->next!=NULL){    size++;}
-
-
+ListNode* temp1=A;
+if(A!=NULL)sizeA++;
+while(temp1->next!=NULL){   
+   cout<<"temp1 ki value = "<<temp1->val<<endl;
+    sizeA++;
+    temp1=temp1->next;
+  //  cout<<"while khatam"<<endl;
+    
+    
+}
+cout<<"size of A"<<sizeA<<endl;
 temp1=A;
-node* prev;
-node* temp2=B;
+ListNode* prev=NULL;
+ListNode* temp2=B;
+if(A!=NULL)sizeB++;
+while(temp2->next!=NULL){   
+    
+    sizeB++;
+    
+    
+    temp2=temp2->next;
+}
+cout<<"size of B"<<sizeB<<endl;
+temp2=B;
+if(A==NULL){return B; }
+if(B==NULL){return A; }
+cout<<"not a nul lists"<<endl;
+if(sizeB>sizeA){
+    temp2=A;
+    temp1=B;
+    A=temp1;
+    B=temp2;
+    sizeA=sizeB;
+}
+cout<<"initialisation done"<<endl;
+cout<<"size of loop"<<sizeA<<endl;
+cout<<"large loop begin at = "<<temp1->val<<endl;
+cout<<"small loop begin at = "<<temp2->val<<endl;
 
 //////////////loop begin
 // suppose A is greater in 
-for(int i=0;i<Asize;i++){
+while(temp2!=NULL){
+    
+cout<<temp1->val<<temp2->val<<endl;
    if(prev==NULL){
             
          if(temp1->val>temp2->val){
@@ -47,54 +58,66 @@ for(int i=0;i<Asize;i++){
              temp2->next=A;
              A=temp2;
              temp2=B;   
-             prev=A;         }
+             prev=A;        
+             
+        cout<<"prev initialised and node added"<<endl;
+         }
              
          
              
         else {
-            prev=temp1;
+           if(temp1->next!=NULL){ prev=temp1;
             temp1=temp1->next;
+           cout<<"prev initialised"<<endl; 
+    }
         }     
 }
 
+
 ///////////////proper initialisation done
-
-else if(temp1->next==NULL&&(temp1->val<=temp2-<val)){
-    temp1-next=temp2;
-    B=NULL;
-    return A;
-}
-
-
-else if(B!=NULL){
+else if(temp2!=NULL){
     if(temp1->val>temp2->val){
-     prev1->next=temp2;
+     prev->next=temp2;
     temp2=temp2->next;
-    prev1=prev1->next;
-    prev1->next=temp1;
+    prev=prev->next;
+    prev->next=temp1;
+   cout<<"node added"<<endl;
     }
     
     else {
          prev=temp1;
          temp1=temp1->next;
+         cout<<"move forward"<<endl;
     }
+
     
+
+
+    
+
+
+}
+
+ if(temp1->next==NULL&&(temp1->val<=temp2->val)){
+     cout<<"A at the edge"<<endl;
+    temp1->next=temp2;
+    B=NULL;
+    
+    return A;
+   
 }
 
 
 
 
+   cout<<"loop terminated"<<endl;
+}
+
+cout<<"program terminated"<<endl;
 
 return A; 
     
 }
-    
-    
-    
-
-
-
-
 
 int main() {
 	// your code goes here
