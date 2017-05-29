@@ -1,0 +1,54 @@
+ ListNode* detect(ListNode* A) {
+    ListNode* doub=A;
+    ListNode* sing=A;
+     ListNode* prev=NULL;
+    int count=0;
+    int count2=0; 
+    
+    if(sing==NULL){         return NULL;    }  
+  
+  doub=doub->next;
+    if(doub==NULL){         return NULL;    }  
+         doub=doub->next;
+           if(doub==NULL){         return NULL;    }  
+      sing=sing->next;
+      
+      
+  
+  
+  while(doub!=sing ){
+      doub=doub->next;
+      if(doub==NULL) return NULL;
+         doub=doub->next;
+         if(doub==NULL) return NULL;
+      sing=sing->next;
+      if(doub==NULL) return NULL;
+  }
+ // cout<<doub->val<<" "<<sing->val<<endl;
+  
+  sing=sing->next;
+  count++;
+ // cout<<"count "<<count<<endl;
+ while(doub!=sing ){
+      sing=sing->next;
+    //  cout<<"loop"<<endl;
+     count++;
+ }
+ // cout<<doub->val<<" "<<sing->val<<endl;
+ 
+ //cout<<"count = "<<count<<endl;
+ sing=A;
+ doub=A;
+ for(int i=0;i<count;i++){ sing=sing->next;}
+ while(doub!=sing){
+     
+     
+         doub=doub->next;
+         count2++;
+    
+     sing=sing->next;
+     
+ }
+ return sing;
+  }
+  
