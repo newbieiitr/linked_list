@@ -1,0 +1,95 @@
+ ListNode* insertion(ListNode* A) {
+    
+    //null condition ??
+    if(A==NULL){return NULL;}
+    
+ListNode* temp=A->next;
+ListNode* tempprev=A;
+ListNode* curr=A;
+ListNode* prev=NULL;
+
+//cout<<"initialisation complete"<<endl;
+
+while(temp!=NULL){
+   // cout<<" while loop temp = "<<temp->val<<endl;
+  //  prin(A);
+    if(prev==NULL){
+      //  cout<<"first elenet  h "<<endl;
+        if(temp->val<curr->val){
+            A=A->next;
+            curr->next=A->next;
+            A->next=curr;
+            prev=A;
+            temp=curr->next;
+            tempprev=curr;
+        }
+        
+        else{
+            prev=curr;
+            curr=curr->next;
+            tempprev=temp;
+            temp=temp->next;
+             
+        }
+        
+    }
+    // prev initialised
+    else {
+      //  cout<<"prev initialised hai "<<endl;
+        curr=A;
+        prev=NULL;
+        while(curr->val<temp->val&& curr!=tempprev){
+            //move pointers
+          // cout<<curr->val<<" = curr and temp ="<<temp->val<<endl;  
+                prev=curr;
+                curr=curr->next;
+           
+            
+        }
+      //  cout<<curr->val<<" = curr and temp ="<<temp->val<<endl;
+        // all pointer at right position to 
+        if(curr==tempprev && curr->val<temp->val){
+          //  cout<<"sequence change nahi  hoga "<<endl;
+            
+            //cout<<"";
+            prev=curr;
+            curr=curr->next;
+            tempprev=curr;
+            temp=curr->next;
+            
+        }
+        
+        else{
+          //  cout<<"sequence change hoga "<<endl;
+        
+        if(prev==NULL){
+          //  cout<<"starting mein element add karna h "<<endl;
+            ListNode* prevHead=A;
+             A=temp;
+            //  curr->next=A->next;
+                tempprev->next=A->next;
+                A->next=curr;
+            temp=tempprev->next;
+            prev=A;
+            
+            curr=tempprev;
+             // prin(A);
+             
+        }
+        else{
+          //  cout<<"yeh step karna tha"<<endl;
+            prev->next=temp;
+            tempprev->next=temp->next;
+            temp->next=curr;
+            temp=tempprev->next;
+            
+        }
+            
+        }
+            
+         }
+       
+    }
+    return A;
+    
+}
