@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+struct Node{
+	int val;
+	Node* bottom;
+	};
+
+
+class stack{
+	Node* root;
+	int count;
+	
+	public:
+	stack(){ 	
+		root=NULL;
+		count=0;}
+void	push(int val);
+void   pop();
+int top();
+bool empty();
+int size();
+	};
+	
+	
+void stack::pop(){
+	if(root==NULL) {cout<<"stack is empty "<<endl;}
+	else{
+Node* temp=root;
+root=root->bottom;
+count--; }
+}
+void stack::push(int x){
+	Node* temp=new Node;
+	temp->val=x;
+	temp->bottom=root;
+	root=temp;
+	count++;
+	
+}
+int stack::size(){
+	return count;
+}
+bool stack::empty(){
+	if(count==0) return 1;
+	else return 0;
+}
+int stack::top(){
+	if(root==NULL) return -1;
+
+	return root->val;
+}
+	
+
+int main() {
+	stack* abc =new stack;
+	cout<<abc->empty()<<endl;
+	abc->pop();
+	cout<<abc->top()<<endl;
+	cout<<abc->size()<<endl;
+	abc->push(5);
+	cout<<abc->top()<<endl;
+	cout<<abc->top()<<endl;
+	cout<<abc->size()<<endl;
+	abc->pop();
+	cout<<abc->empty()<<endl;
+	abc->pop();
+	cout<<abc->top()<<endl;
+	abc->push(1);
+	abc->push(2);
+	abc->push(3);
+	abc->push(4);
+	abc->push(10);
+	cout<<abc->empty()<<endl;
+	cout<<abc->size()<<endl;
+	cout<<abc->top()<<endl;
+	abc->pop();
+	cout<<abc->size()<<endl;
+	cout<<abc->top()<<endl;
+	abc->pop();
+	cout<<abc->size()<<endl;
+	cout<<abc->top()<<endl;
+	abc->pop();
+cout<<abc->size()<<endl;
+	cout<<abc->top()<<endl;
+	abc->pop();
+cout<<abc->size()<<endl;
+	cout<<abc->top()<<endl;
+	abc->pop();
+	cout<<abc->size()<<endl;
+	cout<<abc->top()<<endl;
+	abc->pop();
+	
+	
+		
+		
+	
+			
+	
+	
+
+	return 0;
+}
